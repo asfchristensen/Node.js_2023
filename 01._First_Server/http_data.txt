@@ -1,0 +1,20 @@
+//--How can you send data?--// 
+
+- Pathvariables 
+- Queriy strings (Requestparam)
+
+
+//--Anatomy of an URL--//
+
+http://localhost/kickdinosaur/:id?size=1200
+
+http:// = protokollen vi følger
+localhost = domænenavnet (kan også være en IP-adresse)
+/kickdinosaur = endpoint (fortsætter med alt til højre herfor)
+/:id = specificere hvilken dinosaur der kan sparkes (en pathvariable) - required for at nå endpointet
+?size=1200 = query string (starter altid med "?" så key = value) - optional dvs. behøves ikke for at nå endpointet
+
+//--Hvordan man en klient sende data?--//
+
+- Med en body 
+- Gøres via en POST 
