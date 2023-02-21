@@ -13,7 +13,6 @@ app.use(express.json());
 
 //create new bird
 app.post("/birds", (req, res) => {
-    //FORKLAR HVORFOR MAN BARE KAN SKRIVE ET VARIBEL NAVN MED SPREAD-OPERATOR!!! 
     const { ...bird } = req.body;
     const birdToSave = birds.createBird(bird);
     res.send({ message : birdToSave });
