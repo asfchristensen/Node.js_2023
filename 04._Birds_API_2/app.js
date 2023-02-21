@@ -23,7 +23,6 @@ app.get("/birds", (req, res) => {
     res.send({ data : birds.birdList });
 });
 
-
 //get bird by id
 app.get("/birds/:id", (req, res) => {
     const { id } = req.params;
@@ -66,7 +65,6 @@ app.delete("/birds/:id", (req, res) => {
     const birdToDelete = birds.deleteBird(id);    
     res.send({ message : birdToDelete}); 
 });
-
 
 const PORT = 8080;
 app.listen(PORT, (error) => {
