@@ -58,7 +58,7 @@ app.patch("/birds/:id", (req, res) => {
     const { ...bird } = req.body;
     const birdToUpdate = birds.updateBird(id, bird);
     res.send({ message: birdToUpdate });
-})
+});
 
 //delete bird by id
 app.delete("/birds/:id", (req, res) => {
