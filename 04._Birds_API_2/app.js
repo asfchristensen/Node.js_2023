@@ -15,7 +15,7 @@ app.use(express.json());
 app.post("/birds", (req, res) => {
     const { ...bird } = req.body;
     const birdToSave = birds.createBird(bird);
-    res.send({ message : birdToSave });
+    res.send({ data : birdToSave });
 });
 
 //get all birds
@@ -56,14 +56,14 @@ app.patch("/birds/:id", (req, res) => {
     const { id } = req.params;
     const { ...bird } = req.body;
     const birdToUpdate = birds.updateBird(id, bird);
-    res.send({ message: birdToUpdate });
+    res.send({ data: birdToUpdate });
 });
 
 //delete bird by id
 app.delete("/birds/:id", (req, res) => {
     const { id } = req.params;
     const birdToDelete = birds.deleteBird(id);    
-    res.send({ message : birdToDelete}); 
+    res.send({ data : birdToDelete}); 
 });
 
 const PORT = 8080;
