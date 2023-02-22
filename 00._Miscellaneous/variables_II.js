@@ -1,8 +1,8 @@
 "use strict"
 
-//Never EVER do this:
-//totalGlobalVariable = "Never ever do this"; //creates an even more global variable than "var"
-//var globalVariable = "Also never do this";
+// never EVER do this:
+// totalGlobalVariable = "Never ever do this"; //creates an even more global variable than "var"
+// var globalVariable = "Also never do this";
 
 /*{
     var someValue = true;
@@ -20,14 +20,14 @@
     console.log(someValue); //prints "true" because "false" has another scope 
 }*/
 
-//Don't use var
+// don't use var
 /*for (var i = 0; i <= 5; i++){
     setTimeout(() => {
         console.log(i); 
     }, 1000);
 }*/
 
-//Use let
+// use let
 for (let i = 0; i <= 5; i++){
     setTimeout(() => {
         console.log(i); 

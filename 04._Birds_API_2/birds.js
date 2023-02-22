@@ -1,6 +1,7 @@
 
 module.exports = {
 
+    // simulating a table in a database  
     birdList: [
         {id : 1, name : "Robin", species : "sparrow", color : "red", diet : "seeds"},
         {id : 2, name : "Eagle", species : "bird", color : "brown", diet : "fish"},

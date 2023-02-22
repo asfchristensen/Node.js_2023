@@ -3,9 +3,10 @@ const express = require("express");
 
 const app = express();
 
+// parsing the body as JSON - not a route 
 app.use(express.json());
 
-//HTTP-method
+// HTTP-method
 app.get("/", (req, res) => {
     res.send({ message: "Out first route" });
 });
@@ -16,14 +17,14 @@ app.get("/spinthebicycle", (req,res) => {
     res.send({ message: `People have spun the bicycle wheel ${bicycleSpins} times`});
 });
 
-//Task: create a new route that kicks the dinosaur and then the dinosaur says ow ow ow 
+// task create a new route that kicks the dinosaur and then the dinosaur says ow ow ow 
 let kick = 0;
 app.get("/kickdinosaur", (req,res) => {
     kick += 1;
     res.send({ message: `You've kicked the dinosaur ${kick} times and it goes "Ow ow ow"`});
 })
 
-//Send HTML-page back to the client
+// send HTML-page back to the client
 app.get("/about", (req,res) => {
     res.send(`
         <h1>About</h1>
@@ -31,14 +32,14 @@ app.get("/about", (req,res) => {
     `);
 });
 
-//Send data with query-string e.g. /bat?adjective=spooky
+// send data with query-string e.g. /bat?adjective=spooky
 app.get("/bat", (req,res) => {
     console.log(req.query);
 
     res.send({ message: `The bat is ${req.query.adjective}.` });
 });
 
-//Send data with pathvariable e.g. /bottle/large
+// send data with pathvariable e.g. /bottle/large
 app.get("/bottle/:bottleSize", (req,res) => {
     console.log(req.params);
     res.send({ bottleSize: req.params.bottleSize });

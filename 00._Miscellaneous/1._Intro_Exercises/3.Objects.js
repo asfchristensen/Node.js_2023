@@ -1,20 +1,20 @@
 // --------------------------------------
 // Objects
 // --------------------------------------
-// Exercise 1 - Retrieve value from object by key
+// exercise 1 - Retrieve value from object by key
 
 const myObj = { message: "Hello, earthling! I bring peace." };
 const myObjMessage = myObj.message;
 
-// Log the message 
+// log the message 
 
 console.log(myObjMessage);
 
 
 // --------------------------------------
-// Exercise 2 - Defining an object. 
+// exercise 2 - Defining an object. 
 
-// Create an object that has your name and age. 
+// create an object that has your name and age. 
 
 const me = {
     name: "Fie",
@@ -25,7 +25,7 @@ console.log(me);
 
 
 // --------------------------------------
-// Exercise 3 - Add a property 
+// exercise 3 - Add a property 
 
 const stackOverflow = {};
 
@@ -37,14 +37,14 @@ console.log(stackOverflow);
 
 
 // --------------------------------------
-// Exercise 4 - Remove a property 
+// exercise 4 - Remove a property 
 
 const thisSong = { description: "The best song in the world." };
 
 // remove the property "description" and add a property called "about" that should say "Just a tribute." 
 
 delete thisSong.description;
-//Adding new property
+// adding new property
 thisSong.about = "Just a tribute.";
 
 console.log(thisSong);
