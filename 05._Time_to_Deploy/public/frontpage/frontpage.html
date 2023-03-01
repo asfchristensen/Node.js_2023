@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time to remember!</title>
 
-<!-------------------------------------CSS------------------------------------------->
+    <!-------------------------------------CSS------------------------------------------->
 
-<!--external stylesheets-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--external stylesheets-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<!--internal styling-->
-<style>
+    <!--internal styling-->
+    <style>
+        .container {
+            padding: 5px;
+            border: 3px solid black;
+            background-color: lightblue;
+        }
 
-.container {
-    padding: 5px;
-    border: 3px solid black;    
-    background-color: lightblue; 
-}
+        table,
+        th,
+        td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
 
-table, th, td {
-  border: 1px solid white;
-  border-collapse: collapse;
-}
+        th,
+        td {
+            padding: 0 35px;
+        }
 
-th, td {
-  padding: 0 35px;
-}
+        th {
+            background-color: lightcoral;
+        }
 
-th {
-    background-color: lightcoral;
-}
+        td {
+            background-color: #96D4D4;
+        }
 
-td {
-    background-color: #96D4D4;
-}
-
-.input-calendar {
-    padding: 20px;
-    border-style: solid;
-    border-color: black;
-}
-
-</style>
+        .input-calendar {
+            padding: 20px;
+            border-style: solid;
+            border-color: black;
+        }
+    </style>
 </head>
 
 <!-------------------------------------HTML------------------------------------------->
@@ -60,7 +63,7 @@ td {
                         <th>Countdown</th>
                     </thead>
                     <tbody id="static-event-rows" class="table-warning">
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -76,7 +79,7 @@ td {
                         <th>Countdown</th>
                     </thead>
                     <tbody id="personal-event-rows" class="table-warning">
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -104,21 +107,21 @@ td {
     <script>
 
         const events = [
-            { event: "Christmas", date: 24, month: "dec", year: 2023, time: "18:30:40"},
-            { event: "New Year", date: 31, month: "dec", year: 2023, time: "23:59:59"},
-            { event: "Halloween", date: 31, month: "oct", year: 2023, time: "20:45:00"},
-            { event: "Queen's birthday", date: 16, month: "apr", year: 2023, time: "10:23:011"},
-            { event: "Constitution day", date: 05, month: "jun", year: 2023, time: "06:59:14"},
-            { event: "Easter", date: 09, month: "apr", year: 2023, time: "17:17:55"},
-            { event: "Official nutella day", date: 05, month: "feb", year: 2024, time: "08:00:00"},
+            { event: "Christmas", date: 24, month: "dec", year: 2023, time: "18:30:40" },
+            { event: "New Year", date: 31, month: "dec", year: 2023, time: "23:59:59" },
+            { event: "Halloween", date: 31, month: "oct", year: 2023, time: "20:45:00" },
+            { event: "Queen's birthday", date: 16, month: "apr", year: 2023, time: "10:23:011" },
+            { event: "Constitution day", date: 05, month: "jun", year: 2023, time: "06:59:14" },
+            { event: "Easter", date: 09, month: "apr", year: 2023, time: "17:17:55" },
+            { event: "Official nutella day", date: 05, month: "feb", year: 2024, time: "08:00:00" },
         ]
 
         // countdown for static calendar events
-        const updateCalender = setInterval(function() {
+        const updateCalender = setInterval(function () {
 
             const staticTableBody = document.getElementById('static-event-rows');
             staticTableBody.innerText = "";
- 
+
             events.forEach(event => {
                 const eventDate = new Date(`${event.month} ${event.date}, ${event.year} ${event.time}`).getTime();
                 const today = new Date().getTime();
@@ -131,7 +134,7 @@ td {
                 const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
                 const countdown = days + ' d ' + hours + ' h ' + minutes + ' min ' + seconds + ' s ';
-                
+
                 const newRow = document.createElement('tr');
 
                 if (timeDifference > 0) {
@@ -147,7 +150,8 @@ td {
                 }
                 staticTableBody.appendChild(newRow);
             }
-        )},100);
+            )
+        }, 100);
 
 
         // list for personal events
@@ -172,7 +176,7 @@ td {
         }
 
         // countdown for personal calendar events
-        function makeCountdown(personalEvents){
+        function makeCountdown(personalEvents) {
             const updateCalendar = setInterval(() => {
 
                 const personalTableBody = document.getElementById('personal-event-rows');
@@ -193,7 +197,7 @@ td {
 
                     let htmlContent = "";
 
-                    if (timeDifference > 0){
+                    if (timeDifference > 0) {
                         htmlContent = `
                         <tr>
                             <td>${event.event}</td>
@@ -211,9 +215,11 @@ td {
 
                     personalTableBody.insertAdjacentHTML("beforeend", htmlContent);
                 }
-            )}, 1000);
+                )
+            }, 1000);
         }
-    
-    </script>     
+
+    </script>
 </body>
+
 </html>
