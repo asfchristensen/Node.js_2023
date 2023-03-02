@@ -1,3 +1,4 @@
+let currentId = 5;
 
 module.exports = {
 
@@ -11,11 +12,21 @@ module.exports = {
 
      // --- POST --- //
 
-     createBird: function(bird) {
+     // cannot use 'length' to imitate MySQL id increment 
+     
+     /*createBird: function(bird) {
         let nextId = this.birdList.length + 1; 
         const birdToSave = { id: nextId++, ...bird };
         this.birdList.push(birdToSave);
         return birdToSave;
+    },*/
+
+    createBird: function(bird) {
+        const birdToCreate = bird;
+        currentId++;
+        bird.id = currentId;
+        this.birdList.push(birdToCreate);
+        return birdToCreate; 
     },
 
     // --- GET --- //
@@ -46,7 +57,9 @@ module.exports = {
 
     // --- PATCH --- //
 
-    updateBird: function(id, bird) {
+    // instead of using find() use findIndex() instead to get instant access 
+
+    /*updateBird: function(id, bird) {
         const foundBird = this.birdList.find(bird => bird.id === Number(id));
         if ( !foundBird ) { return `No bird found with id: ${id}` };
         if ( bird.name ) { foundBird.name = bird.name }; 
@@ -54,15 +67,41 @@ module.exports = {
         if ( bird.color ) { foundBird.color = bird.color }; 
         if ( bird.diet ) { foundBird.diet = bird.diet }; 
         return foundBird;
+    },*/
+
+    updateBird: function(id, bird) {
+        const foundIndex = this.birdList.findIndex(bird => bird.id === Number(id));
+        if (foundIndex === -1) {
+            return `No bird found with id: ${id}`;
+        } else {
+            const foundBird = this.birdList[foundIndex];
+            const birdToUpdate = {...foundBird, ...bird, id: foundBird.id};
+            this.birdList[foundIndex] = birdToUpdate;
+            return birdToUpdate;
+        }
     },
 
     // --- DELETE --- //
 
-    deleteBird: function(id) {
+    // filter can be used but it iterates through each element slowing down performance  
+
+    /*deleteBird: function(id) {
         if ( this.birdList.find(bird => bird.id === Number(id)) ) {
             return this.birdList.filter(bird => bird.id !== Number(id));
         } else { 
             return `No bird with id: ${id} to delete`;
+        }
+    },*/
+
+    // use findIndex() 
+
+    deleteBird: function(id) {
+        const foundIndex = this.birdList.findIndex(bird => bird.id === Number(id));
+        if (foundIndex === -1) {
+            return id;
+        } else {
+            const deletedBird = this.birdList.splice(foundIndex, 1) [0];
+            return deletedBird;
         }
     }
 }
