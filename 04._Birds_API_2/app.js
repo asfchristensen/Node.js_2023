@@ -5,6 +5,7 @@ const app = express();
 // import list from birds.js
 const birds = require('./birds')
 
+// defining body parsing 
 app.use(express.json());
 
 //-- REST API CRUD --//
