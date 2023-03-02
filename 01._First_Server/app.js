@@ -49,7 +49,6 @@ app.get("/bottle/:bottleSize", (req,res) => {
 /* Time */
 
 // different ways to get time
-// | sending time directly is valid because time is valid data i JavaScript
 app.get("/time/time", (req, res) => {
     res.send({ 
         timeUTC: new Date(),
@@ -60,16 +59,9 @@ app.get("/time/time", (req, res) => {
 
 // assignment get the current date and month in English
 
-/* console.log(new Date().getDay() –> gives a number but you want to have the name of the day) */
-// | we want the names and create an array 
-// | it is outside the function/route because or else you will create the array every time you access the endpoint
-// | when you start the server you only create it once (makes it slighty slower) by putting it outside
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 app.get("/time/day", (req, res) => {
-    // american week starts on a sunday
-    // could also write: new Date().toLocaleDateString("da-dk", {weekday: "long"}); <– but not the point!
-
     res.send({ data: days[new Date().getDay()] });
 });
 
