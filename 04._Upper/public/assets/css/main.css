@@ -1,0 +1,18 @@
+body {
+    background-color: palevioletred;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    max-width: 5em;
+}
+
+h1 {
+    color: rgb(176, 222, 184);
+}
+
+main {
+    flex: 1;
+}

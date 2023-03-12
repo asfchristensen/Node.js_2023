@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/annesofiefogh/Node.js_2023#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sentiment": "^5.0.2"
   }
 }
