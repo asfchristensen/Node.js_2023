@@ -1,9 +1,3 @@
-// assignment fetch a joke from and console log
-// https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit
-
-/*fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit")
-.then(response => response.json())
-.then(result => console.log(result));*/
 
 import Sentiment from "sentiment";
 const sentiment = new Sentiment();
@@ -24,13 +18,9 @@ async function getJoke() {
 }
 
 // this will log in the console a score based on the words (positive words rate high and non-positive rate low)
-/*console.log(sentiment.analyze("Node is excellent"));*/
+console.log(sentiment.analyze("Node is excellent"));
 
-console.log(await getJoke());
-
-export default {
-    getJoke
-};
+export default getJoke;
 
 
 
