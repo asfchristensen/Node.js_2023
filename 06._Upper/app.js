@@ -1,7 +1,9 @@
-import express from "express";
+import express, { urlencoded } from "express";
 const app = express();
 
 app.use(express.static("public"));
+
+app.use(urlencoded({ extended: true }));
 
 // un-used imports
 import path from "path"; 
@@ -25,6 +27,12 @@ const IRLQuestsPage = templateEngine.renderPage(IRLQuests, {
     tabTitle:  "Upper | IRLQuests"
  });
 
+ const contact = templateEngine.readPage("./public/pages/contact/contact.html");
+ const contactPage = templateEngine.renderPage(contact, {
+    tabTitle:   "Upper | Contact"
+ });
+
+/* Pages */
 
 app.get("/", (req, res) => {
     res.send(frontpagePage);
@@ -41,8 +49,28 @@ app.get("/jokes", async (req, res) => {
     res.send(jokesPage);
 });
 
+app.get("/contact", (req, res) => {
+    res.send(contactPage);
+});
 
-const PORT = 8080;
+
+/* API */
+
+app.post("/api/contact", (req, res) => {
+    console.log(req.body);
+    /*res.send(req.body);*/ // shows the data in postman
+    res.redirect()
+});
+
+
+
+if (process.env.ENV === "DEV") {
+    // set up dev ...
+}
+
+
+// Accessing environment variables (process.env.PORT) and a fall back port (8080) if it's not defined
+const PORT = Number(process.env.PORT) || 8080;
 app.listen(PORT, (error) => {
     if (error) {
         console.log(error);

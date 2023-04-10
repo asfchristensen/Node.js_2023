@@ -11,7 +11,6 @@ async function getJoke() {
     const jokeToAnalyze = result.joke || `${result.setup} ${result.delivery}`;
     const { score } = sentiment.analyze(jokeToAnalyze);
     if (score < 0) {
-        // I don't like that joke .. I want to get a new one
         return await getJoke();
     }
     return result;

@@ -37,7 +37,6 @@ async function renderJokePage() {
         `;
         jokePage = jokePage.replace("$JOKE_HTML_CONTENT", jokeHtmlContent)
 
-    // what would cause this to happen? If the API shake things up or something happens 
     } else {
         jokePage = jokePage.replace("$JOKE_HTML_CONTENT", "<h3>No jokes for you.</h3>")
     }

@@ -2,6 +2,29 @@
         <h1>IRL Quests</h1>
 
         <h2>Your next quest is to...</h2>
+
+        <!--
+            task create a dropdown with the following activities
+            ["education, "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+            create a button that will call a function called getNewQuest
+            the content of the function can be empty for now 
+        -->
+
+        <label>Activities</label>
+        <select id="activity-dropdown">
+            <option value="education">Education</option>
+            <option value="recreational">Recreational</option>
+            <option value="social">Social</option>
+            <option value="diy">DIY</option>
+            <option value="charity">Charity</option>
+            <option value="cooking">Cooking</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="music">Music</option>
+            <option value="busywork">Busywork</option>
+        </select>
+        <button id="fecth-new-quest-btn">Fetch a new request</button>
+
         <h2 id="quest"></h2>
+
 
     <script src="/pages/IRLQuests/IRLQuests.js"></script>
